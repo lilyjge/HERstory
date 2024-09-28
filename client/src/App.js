@@ -1,5 +1,7 @@
 import './App.css';
 import axios from "axios";
+import DisplayQuestion from "./question"
+import DisplayAnswer from "./answer"
 
 const makeCall = () => {
   axios.get('http://localhost:8000').then((data) => {
@@ -8,12 +10,13 @@ const makeCall = () => {
   })
 }
 
+// <h1></h1> declares a react fragment, allowing you to print something else
 function App() {
-
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={makeCall}>Click</button>
+        <DisplayQuestion question="hey"></DisplayQuestion>
+        <DisplayAnswer ans="hi"></DisplayAnswer>
       </header>
     </div>
   );
