@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 
 const qList = [
     {
@@ -57,14 +58,15 @@ const qList = [
     }
 ]  
 
-app.get("/questions", (req, res) => {
-    res.send(qList);
+app.get("/questions/:id", (req, res) => {
+  const {id} = req.params;
+  res.send(qList[id]);
 })
 
 app.get("/", (req, res) => {
-    res.send("hello world");
+  res.send("hello world");
 });
 
 app.listen(8000, () => {
-    console.log("listening");
+  console.log("listening");
 });
