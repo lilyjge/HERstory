@@ -1,9 +1,6 @@
-import axios from "axios";
+// import axios from "axios";
 import { useState } from "react";
 // import { useEffect } from "react";
-
-let index = Math.floor(Math.random() * 10);
-var q = await axios.get(`http://localhost:8000/questions/${index}`);
 
 function Choice({option, checkAns, isDisabled}) {
     return (
@@ -13,15 +10,15 @@ function Choice({option, checkAns, isDisabled}) {
     )
 }
 
-function AllChoices() {
+function AllChoices({op, ans}) {
     const [isDisabled, setDisabled] = useState(false);
     const [isCorrect, setCorrect] = useState(false);
-    console.log(q);
-    const op = q.data.options;
+    // console.log(q);
+    // const op = q.data.options;
     console.log(op);
 
     function checkAns(option){
-        setCorrect(option === q.data.answer);
+        setCorrect(option === ans);
         console.log(isCorrect);
         setDisabled(true);
     }
