@@ -16,7 +16,7 @@ function MakeBackground() {
                 <h1> herstory </h1>
             </div>
             <div className = "start-button">
-                <a href = "/login">
+                <a href = "https://2912938.propelauthtest.com/en/login">
                 <button type="button" class="btn btn-primary btn-lg" > Sign Up </button>
                 </a>
             </div>
