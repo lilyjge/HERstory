@@ -67,15 +67,6 @@ const Game = () => {
             </div>
   
             {/* Second Row with One Full-Width Column */}
-            {/* <div className="row justify-content-center">
-              <div className="col-12">
-                <div className="card" style={{ width: "100%" }}>
-                  <div className="m-3 p-3">
-                    <h5 className="card-title"><DisplayAnswer ans={question.data.summary} solved={solved} className="correctAnswer"></DisplayAnswer></h5>
-                  </div>
-                </div>
-              </div>
-            </div> */}
             <DisplayAnswer ans={question.data.summary} solved={solved} className="correctAnswer"></DisplayAnswer>
           </div>
         </div>
