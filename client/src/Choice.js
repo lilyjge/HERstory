@@ -14,19 +14,11 @@ function AllChoices({op, ans, updateScore}) {
     const [isDisabled, setDisabled] = useState(false);
     const [isCorrect, setCorrect] = useState(false);
 
-    // console.log(q);
-    // const op = q.data.options;
-    // console.log(op);
-    // console.log("in fun");
     async function checkAns(option){
         await setCorrect(option === ans);
-        // console.log(isCorrect);
         await setDisabled(true);
         await updateScore(option === ans);
-        // console.log(isCorrect);
     }
-
-    // useEffect(() => console.log(isCorrect), [isCorrect]);
 
     return (
         <div>

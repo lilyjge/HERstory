@@ -14,7 +14,7 @@ import { useState } from 'react';
 //   })
 // }
 
-let index = Math.floor(Math.random() * 10);
+let index = Math.floor(Math.random() * 50);
 var question = await axios.get(`http://localhost:8000/questions/${index}`);
 
 // <h1></h1> declares a react fragment, allowing you to print something else
