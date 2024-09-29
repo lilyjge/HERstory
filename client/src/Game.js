@@ -36,59 +36,61 @@ const Game = () => {
     }
   
     return (
-      <div className="App"style={{height:"100vh"}}>
+      <div className="App" style={{ height: "100vh" }}>
+        {/* EXIT BUTTON */}
+        <div className="d-flex" style={{ float: 'right' }}>
+          <div className="container">
+            <div className="col-md-2">
+              <div className="card" style={{ width: "50%" }}>
+                <div className="m-2 mt-3">
+                  <h1 className="fs-6">
+                    <Exit score={counter} email={email}></Exit>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* {/ SCORE BUTTON /} */}
         <div className="container">
-          <div className="col-md-2">
+          <div className="col-md-1">
             <div className="card" style={{ width: "50%" }}>
-              <div className="m-2 mt-3">
-                <h1 className="fs-6">
-                  <Exit score={counter} email={email}></Exit>
-                </h1>
+              <div className="m-1 mt-3">
+                <div className="fs-6">
+                  <Counter cnt={counter}></Counter>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* SCORE BUTTON */}
-      <div className="container">
-        <div className="col-md-1">
-          <div className="card" style={{ width: "50%" }}>
-            <div className="m-1 mt-3">
-              <div className="fs-6">
-                <Counter cnt={counter}></Counter>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* ROWS */}
-      <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: "80vh" }}>
-        <div className="container">
-          {/* First Row with Two Equal Columns */}
-          {/* QUESTION CARD */}
-          <div className="row justify-content-center mb-2">
-            <div className="col-md-6">
-              <div className="card" style={{ width: "100%" }}>
-                <div className="m-2 px-5 p-5 fs-5">
-                  <div className="DisplayQuestion">
-                    <div className="fs-4">
-                      <DisplayQuestion question={question.data.question} />
+        {/* {/ ROWS /} */}
+        <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: "80vh" }}>
+          <div className="container">
+            {/* {/ First Row with Two Equal Columns /}
+            {/ QUESTION CARD /} */}
+            <div className="row justify-content-center mb-2">
+              <div className="col-md-6">
+                <div className="card" style={{ width: "100%" }}>
+                  <div className="m-2 px-5 p-5 fs-5">
+                    <div className="DisplayQuestion">
+                      <div className="fs-4">
+                        <DisplayQuestion question={question.data.question} />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {/* ANSWER CHOICES */}
-            <div className="col-md-6 fs-3">
-              <div className="options">
-                <h3 className="fs-3">
-                  <AllChoices op={question.data.options} ans={question.data.answer} updateScore={updateScore} key={key} />
-                </h3>
+              {/* ANSWER CHOICES */}
+              <div className="col-md-6 fs-3">
+                <div className="options">
+                  <h3 className="fs-3">
+                    <AllChoices op={question.data.options} ans={question.data.answer} updateScore={updateScore} key={key} />
+                    </h3>
               </div>
             </div>
           </div>
 
-          {/* Second Row with One Full-Width Column */}
+          {/* Second Row with One Full-Width Column /}
           {/* CORRECT ANSWER */}
           <div className="DisplayAnswer">
 
