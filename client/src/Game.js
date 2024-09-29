@@ -7,40 +7,42 @@ import Counter from "./Counter";
 import Next from './Next';
 import Exit from "./Exit";
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 let index = Math.floor(Math.random() * 42);
 var question = await axios.get(`http://localhost:8000/questions/${index}`);
 
 const Game = () => {
-  const [counter, setCounter] = useState(0);
-  const [index, setIndex] = useState(Math.floor(Math.random() * 42));
-  const [key, setKey] = useState(0);
-  const [solved, setSolved] = useState(false);
-  async function updateScore(score) {
-    await setCounter(counter + score);
-    // console.log("score: " + score);
-    // console.log("counter: " + counter)
-    await setSolved(true);
-  }
-
-  async function refresh() {
-    await setIndex(Math.floor(Math.random() * 42));
-    question = await axios.get(`http://localhost:8000/questions/${index}`);
-    await setKey(key + 1);
-    // this.forceUpdate();
-    await setSolved(false);
-  }
-
-  return (
-    <div className="App" style={{ height: "100vh" }}>
-      {/* EXIT BUTTON */}
-      <div className="d-flex" style={{ float: 'right' }}>
+    const [counter, setCounter] = useState(0);
+    const [index, setIndex] = useState(Math.floor(Math.random() * 42));
+    const [key, setKey] = useState(0);
+    const [solved, setSolved] = useState(false);
+    const location = useLocation();
+    const {email} = location.state;
+    // console.log(email);
+    async function updateScore(score) {
+      await setCounter(counter + score);
+      // console.log("score: " + score);
+      // console.log("counter: " + counter)
+      await setSolved(true);
+    }
+  
+    async function refresh() {
+      await setIndex(Math.floor(Math.random() * 42));
+      question = await axios.get(`http://localhost:8000/questions/${index}`);
+      await setKey(key + 1);
+      // this.forceUpdate();
+      await setSolved(false);
+    }
+  
+    return (
+      <div className="App"style={{height:"100vh"}}>
         <div className="container">
           <div className="col-md-2">
             <div className="card" style={{ width: "50%" }}>
               <div className="m-2 mt-3">
                 <h1 className="fs-6">
-                  <Exit></Exit>
+                  <Exit score={counter} email={email}></Exit>
                 </h1>
               </div>
             </div>

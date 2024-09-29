@@ -5,7 +5,7 @@ const port = 8000;
 const cors = require('cors');
 const qList = require("./seeds"); 
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded());
 
 app.use(express.json());
 app.use(cors());
@@ -26,24 +26,28 @@ const User = mongoose.model('User', UserSchema);
 
 app.post('/api/sendEmail', async (req, res) => {
   const { email } = req.body;
+  const user = await User.findOne({ email });
+  if(user) res.send(email);
   const score = 0;
   try {
       const newUser = new User({ email, score });
       await newUser.save();
       console.log('Email and score saved:', { email, score });
-      res.status(201).send('User created successfully');
+      res.status(201).send(email);
   } catch (error) {
       console.error('Error saving user:', error);
-      res.status(500).send('Error creating user');
+      // res.send('Error creating user');
   }
 });
 
-app.get('/api/getScore', async (req, res) => {
-  const { email } = req.query;
+app.get('/api/getScore/:email', async (req, res) => {
+  const { email } = req.params;
+  if(email === null) res.send(0);
+  // console.log(email);
   try {
       const user = await User.findOne({ email });
       if (user) {
-          res.status(200).json({ email: user.email, score: user.score });
+          res.status(200).json({score: user.score });
       } else {
           res.status(404).send('User not found');
       }
@@ -53,14 +57,18 @@ app.get('/api/getScore', async (req, res) => {
   }
 });
 
-app.put('/api/updateScore', async (req, res) => {
-  const { email, newScore } = req.body;
+app.put('/api/updateScore/:email/:newScore', async (req, res) => {
+  const { email, newScore } = req.params;
+  console.log(email);
+  console.log(newScore);
   try {
-      const user = await User.findOneAndUpdate(
+      const user = await User.findOne({ email });
+      if(user.score < newScore){
+        await User.findOneAndUpdate(
           { email },
-          { score: newScore }, 
-          { new: true }
-      );
+          { score: newScore }
+        );
+      }
       if (user) {
           res.status(200).json({ email: user.email, updatedScore: user.score });
       } else {
