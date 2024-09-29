@@ -1,5 +1,8 @@
 .App {
+  background-color: #ffd4d9;
   text-align: center;
+  font-family: Playfair Display;
+  color: #ff877d;
 }
 
 .App-logo {
@@ -33,6 +36,16 @@
   padding: 0; 
   box-sizing: border-box; 
 }
+
+.DisplayQuestion{
+  color: #ff877d;
+}
+
+.DisplayAnswer{
+  color: #ff877d;
+}
+
+
 
 @keyframes App-logo-spin {
   from {

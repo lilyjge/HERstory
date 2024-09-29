@@ -21,7 +21,7 @@ function Choice({ option, checkAns, isDisabled, picked, ans}) {
         else{
             return (
                 <div className="d-grid col-12 p-2 mx-auto">
-                    <button className="btn btn-light btn-lg" type="button" onClick={() => { checkAns(option) }} disabled={isDisabled}>{option}</button>
+                    <button className="btn btn-light btn-lg" type="button" Button onClick={() => { checkAns(option) }} disabled={isDisabled}>{option}</button>
                 </div>
             )
         }
