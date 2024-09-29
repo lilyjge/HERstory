@@ -1,22 +1,29 @@
 import './App.css';
 import axios from "axios";
+import { withAuthInfo } from '@propelauth/react';
 
-const makeCall = () => {
-  axios.get('http://localhost:8000').then((data) => {
-    //this console.log will be in our frontend console
-    console.log(data)
-  })
-}
+const App = withAuthInfo((props) => {
 
-function App() {
+    // Function to send email to the backend
+    const handleSendEmail = async () => {
+        try {
+            const response = await axios.post("http://localhost:8000/api/sendEmail", {
+                email: props.user.email
+            });
+            console.log('Email sent to backend successfully:', response.data);
+        } catch (error) {
+            console.error('Error sending email to backend:', error);
+        }
+    }
+    // isLoggedIn and user are injected automatically from withAuthInfo
+    if (props.isLoggedIn) {
+        // Trigger the send email function when the user is logged in
+        handleSendEmail();
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={makeCall}>Click</button>
-      </header>
-    </div>
-  );
-}
+        return <p>You are logged in as {props.user.email}</p>;
+    } else {
+        return <p>You are not logged in</p>;
+    }
+});
 
 export default App;
