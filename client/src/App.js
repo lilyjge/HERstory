@@ -51,7 +51,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="d-flex flex-column justify-content-center align-items-center">
+      <div className="d-flex flex-column justify-content-center align-items-center"style={{height:"80vh"}}>
         <div className="container">
           {/* First Row with Two Equal Columns */}
           <div className="row justify-content-center mb-2">
@@ -89,7 +89,7 @@ function App() {
       <div className="container">
         <div className="col-2">
           <div className="card" style={{ width: "50%" }}>
-            <div className="m-1 mt-3">
+            <div className="m-1 mt-2">
               <h1 className="fs-6">
                 <Next refresh={refresh} solved={solved}></Next>
               </h1>
