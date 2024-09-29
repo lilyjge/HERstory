@@ -23,14 +23,14 @@ function App() {
   const [index, setIndex] = useState(Math.floor(Math.random() * 10));
   const [key, setKey] = useState(0);
   const [solved, setSolved] = useState(false);
-  async function updateScore(score) {
+  async function updateScore(score){
     await setCounter(counter + score);
     // console.log("score: " + score);
     // console.log("counter: " + counter)
     await setSolved(true);
   }
 
-  async function refresh() {
+  async function refresh(){
     await setIndex(Math.floor(Math.random() * 50));
     question = await axios.get(`http://localhost:8000/questions/${index}`);
     await setKey(key + 1);

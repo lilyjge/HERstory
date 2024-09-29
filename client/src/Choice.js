@@ -10,7 +10,7 @@ function Choice({ option, checkAns, isDisabled }) {
     )
 }
 
-function AllChoices({ op, ans, updateScore}) {
+function AllChoices({op, ans, updateScore}) {
     const [isDisabled, setDisabled] = useState(false);
     const [isCorrect, setCorrect] = useState(false);
 
