@@ -7,6 +7,7 @@ import Counter from "./Counter";
 import Next from './Next';
 import Exit from "./Exit";
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 let index = Math.floor(Math.random() * 42);
 var question = await axios.get(`http://localhost:8000/questions/${index}`);
@@ -16,6 +17,9 @@ const Game = () => {
     const [index, setIndex] = useState(Math.floor(Math.random() * 42));
     const [key, setKey] = useState(0);
     const [solved, setSolved] = useState(false);
+    const location = useLocation();
+    const {email} = location.state;
+    // console.log(email);
     async function updateScore(score) {
       await setCounter(counter + score);
       // console.log("score: " + score);
@@ -39,7 +43,7 @@ const Game = () => {
               <div className="m-1 mt-3">
                 <h1 className="fs-6">
                   <Counter cnt={counter}></Counter>
-                  <Exit></Exit>
+                  <Exit score={counter} email={email}></Exit>
                 </h1>
               </div>
             </div>

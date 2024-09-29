@@ -3,6 +3,8 @@ import logo from './logo.png';
 import './App.css';
 import axios from "axios";
 import { withAuthInfo } from '@propelauth/react';
+import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 function ReturnHighest({highScore}) {
     return(
@@ -13,7 +15,8 @@ function ReturnHighest({highScore}) {
 }
 
 const Welcome = withAuthInfo((props) => {
-
+    const [email, setEmail] = useState();
+    const [score, setScore] = useState();
     // Function to send email to the backend
     const handleSendEmail = async () => {
         try {
@@ -21,6 +24,7 @@ const Welcome = withAuthInfo((props) => {
                 email: props.user.email
             });
             console.log('Email sent to backend successfully:', response.data);
+            setEmail(response.data);
         } catch (error) {
             console.error('Error sending email to backend:', error);
         }
@@ -29,6 +33,13 @@ const Welcome = withAuthInfo((props) => {
     if (props.isLoggedIn) {
         handleSendEmail();
     }
+
+    // var score;
+    async function getScore(){
+        var t = await axios.get(`http://localhost:8000/api/getScore/${props.user.email}`);
+        await setScore(t.data.score);
+    }
+    getScore();
 
     return (
         <>
@@ -39,16 +50,17 @@ const Welcome = withAuthInfo((props) => {
                 Welcome to HERstory!
             </h1>
             <div className = "score-overlay">
-                <ReturnHighest highScore={2}></ReturnHighest>
+                <ReturnHighest highScore={score}></ReturnHighest>
             </div>
             <div className = "start-button">
-                <a href = "/game">
+                {/* <a href = "/game"> */}
+                <Link to="/game" state={{email: {email}}}>
                 <button type="button" class="btn btn-primary btn-lg" > Start! </button>
-                </a>
+                </Link>
+                {/* </a> */}
             </div>
         </div>
         </>
     )
   });
-  
   export default Welcome;
