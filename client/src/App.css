@@ -89,6 +89,13 @@
 
 .start-button {
   position: absolute; 
+  top: 78%; 
+  left: 46%; 
+  width: 8%;
+}
+
+.signup-button {
+  position: absolute; 
   top: 72%; 
   left: 21%; 
   width: 8%;

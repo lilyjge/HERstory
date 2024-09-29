@@ -12,7 +12,7 @@ function MakeBackground() {
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></link>
             <img src = {womenbackground} alt = "we are in this together" className = "background-image"/>
             <img src = {logo} alt = "This is our logo" className = "overlay-image"/>
-            <div className = "start-button">
+            <div className = "signup-button">
                 <a href = "https://2912938.propelauthtest.com/en/login">
                 <button type="button" class="btn btn-primary btn-lg" > Sign Up </button>
                 </a>
