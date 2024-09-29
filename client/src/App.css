@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +41,81 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.website-homepage {
+  position: relative; 
+  width: 100%; 
+  height: auto; 
+  margin: 0; 
+  padding: 0; 
+}
+
+.background-image {
+  top: 0%; 
+  width: 100%; 
+}
+
+.overlay-image{
+  position: absolute;
+  top: 10%; 
+  left: 40%; 
+  width: 20%;
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+
+.welcome-image{
+  position: absolute;
+  top: 15%; 
+  left: 42%; 
+  width: 16%;
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+
+.text-overlay {
+  position: absolute; 
+  font-size: 16px; 
+  top: 5%; 
+  left: 3%; 
+  color: rgb(155, 107, 116); 
+  background-color: rgba(147, 93, 158, 0.5); 
+  padding: 10px; 
+  border-radius: 5px; 
+}
+
+.start-button {
+  position: absolute; 
+  top: 50%; 
+  left: 46%; 
+  width: 8%;
+}
+
+.btn-primary {
+  background-color: rgb(155, 107, 116) !important; 
+} 
+
+.score {
+  top: 12%;
+  left: 5%;
+  font-size: 24px; 
+}
+
+.score-overlay {
+  position: absolute; 
+  top: 5%; 
+  left: 3%; 
+  color: rgb(224, 180, 207); 
+  background-color: rgba(27, 18, 86, 0.5); 
+  padding: 10px; 
+  border-radius: 5px; 
+}
+
+.welcome-overlay {
+  position: absolute; 
+  top: 5%; 
+  left: 20%; 
+  width: 60%; 
+  color: rgb(224, 180, 207); 
 }
