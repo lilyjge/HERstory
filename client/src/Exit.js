@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Exit() {
     return (
         <div>
-            <Link to="/welcome">Exit</Link>
+            <Link to="/welcome">X</Link>
         </div>
     )
 }
