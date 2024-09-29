@@ -2,25 +2,22 @@
 import { useState } from "react";
 // import { useEffect } from "react";
 
-function Choice({option, checkAns, isDisabled}) {
+function Choice({ option, checkAns, isDisabled }) {
     return (
-        <div>
-            <button onClick={() =>{checkAns(option)}} disabled={isDisabled}>{option}</button>
+        <div class="d-grid col-12 p-2 mx-auto">
+            <button className="btn btn-light" type="button" onClick={() => { checkAns(option) }} disabled={isDisabled}>{option}</button>
         </div>
     )
 }
 
-function AllChoices({op, ans}) {
+function AllChoices({ op, ans, updateScore}) {
     const [isDisabled, setDisabled] = useState(false);
     const [isCorrect, setCorrect] = useState(false);
-    // console.log(q);
-    // const op = q.data.options;
-    console.log(op);
 
-    function checkAns(option){
-        setCorrect(option === ans);
-        console.log(isCorrect);
-        setDisabled(true);
+    async function checkAns(option){
+        await setCorrect(option === ans);
+        await setDisabled(true);
+        await updateScore(option === ans);
     }
 
     return (
