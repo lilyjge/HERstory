@@ -23,14 +23,14 @@ function App() {
   const [index, setIndex] = useState(Math.floor(Math.random() * 10));
   const [key, setKey] = useState(0);
   const [solved, setSolved] = useState(false);
-  async function updateScore(score){
+  async function updateScore(score) {
     await setCounter(counter + score);
     // console.log("score: " + score);
     // console.log("counter: " + counter)
     await setSolved(true);
   }
 
-  async function refresh(){
+  async function refresh() {
     await setIndex(Math.floor(Math.random() * 50));
     question = await axios.get(`http://localhost:8000/questions/${index}`);
     await setKey(key + 1);
@@ -39,24 +39,26 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App"style={{height:"100vh"}}>
       <div className="container">
-        <div className="card" style={{ width: "100%" }}>
-          <div className="m-2 px-5 p-5">
-            <h1 className="card-title">
-              <Counter cnt={counter}></Counter>
-            </h1>
+        <div className="col-md-1">
+          <div className="card" style={{ width: "50%" }}>
+            <div className="m-1 mt-3">
+              <h1 className="fs-6">
+                <Counter cnt={counter}></Counter>
+              </h1>
+            </div>
           </div>
         </div>
       </div>
-      <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: "100vh" }}>
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <div className="container">
           {/* First Row with Two Equal Columns */}
-          <div className="row justify-content-center mb-5">
+          <div className="row justify-content-center mb-2">
             <div className="col-md-6">
               <div className="card" style={{ width: "100%" }}>
                 <div className="m-2 px-5 p-5">
-                  <h2 className="card-title">
+                  <h2 className="fs-3">
                     <DisplayQuestion question={question.data.question} />
                   </h2>
                 </div>
@@ -65,7 +67,9 @@ function App() {
 
             <div className="col-md-6">
               <div className="options">
-                <AllChoices op={question.data.options} ans={question.data.answer} updateScore={updateScore} key={key} />
+                <h3 className="fs-3">
+                  <AllChoices op={question.data.options} ans={question.data.answer} updateScore={updateScore} key={key} />
+                </h3>
               </div>
             </div>
           </div>
@@ -78,6 +82,17 @@ function App() {
                   <h5 className="card-title"><DisplayAnswer ans={question.data.summary} solved={solved} className="correctAnswer"></DisplayAnswer></h5>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="col-2">
+          <div className="card" style={{ width: "50%" }}>
+            <div className="m-1 mt-3">
+              <h1 className="fs-6">
+                <Next refresh={refresh} solved={solved}></Next>
+              </h1>
             </div>
           </div>
         </div>

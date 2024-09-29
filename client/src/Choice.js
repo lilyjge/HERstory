@@ -5,7 +5,7 @@ import { useState } from "react";
 function Choice({ option, checkAns, isDisabled }) {
     return (
         <div class="d-grid col-12 p-2 mx-auto">
-            <button className="btn btn-light" type="button" onClick={() => { checkAns(option) }} disabled={isDisabled}>{option}</button>
+            <button className="btn btn-light btn-lg" type="button" onClick={() => { checkAns(option) }} disabled={isDisabled}>{option}</button>
         </div>
     )
 }
