@@ -14,13 +14,13 @@ import { useState } from 'react';
 //   })
 // }
 
-let index = Math.floor(Math.random() * 50);
+let index = Math.floor(Math.random() * 42);
 var question = await axios.get(`http://localhost:8000/questions/${index}`);
 
 // <h1></h1> declares a react fragment, allowing you to print something else
 function App() {
   const [counter, setCounter] = useState(0);
-  const [index, setIndex] = useState(Math.floor(Math.random() * 10));
+  const [index, setIndex] = useState(Math.floor(Math.random() * 42));
   const [key, setKey] = useState(0);
   const [solved, setSolved] = useState(false);
   async function updateScore(score) {
@@ -31,7 +31,7 @@ function App() {
   }
 
   async function refresh() {
-    await setIndex(Math.floor(Math.random() * 50));
+    await setIndex(Math.floor(Math.random() * 42));
     question = await axios.get(`http://localhost:8000/questions/${index}`);
     await setKey(key + 1);
     // this.forceUpdate();
