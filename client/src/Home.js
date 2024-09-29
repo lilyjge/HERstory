@@ -13,7 +13,7 @@ function MakeBackground() {
             <img src = {womenbackground} alt = "we are in this together" className = "background-image"/>
             <img src = {logo} alt = "This is our logo" className = "overlay-image"/>
             <div className = "text-overlay">
-                <h1> WEBSITE NAME </h1>
+                <h1> herstory </h1>
             </div>
             <div className = "start-button">
                 <a href = "/login">

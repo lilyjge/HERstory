@@ -58,18 +58,18 @@
 
 .overlay-image{
   position: absolute;
-  top: 10%; 
-  left: 40%; 
-  width: 20%;
+  top: 5%; 
+  left: 30%; 
+  width: 40%;
   border-radius: 50%; 
   object-fit: cover; 
 }
 
 .welcome-image{
   position: absolute;
-  top: 15%; 
-  left: 42%; 
-  width: 16%;
+  top: 5%; 
+  left: 30%; 
+  width: 40%;
   border-radius: 50%; 
   object-fit: cover; 
 }
@@ -87,14 +87,20 @@
 
 .start-button {
   position: absolute; 
-  top: 50%; 
+  top: 65%; 
   left: 46%; 
   width: 8%;
 }
 
 .btn-primary {
-  background-color: rgb(155, 107, 116) !important; 
+  background-color: rgb(249, 100, 127) !important; 
+  border-color: rgb(240, 147, 164) !important;
+
 } 
+
+.btn-primary:hover{
+  background-color: #872a60 !important;
+}
 
 .score {
   top: 12%;
@@ -107,7 +113,7 @@
   top: 5%; 
   left: 3%; 
   color: rgb(224, 180, 207); 
-  background-color: rgba(27, 18, 86, 0.5); 
+  /* background-color: rgba(27, 18, 86, 0.5);  */
   padding: 10px; 
   border-radius: 5px; 
 }
