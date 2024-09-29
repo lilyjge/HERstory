@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { useNavigate } from 'react-router-dom'; 
-import womenbackground from './womenbackground.jpg';
+import womenbackground from './home_background.jpg';
 import logo from './logo.png'; 
 import './App.css'; 
 // import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,9 +12,6 @@ function MakeBackground() {
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></link>
             <img src = {womenbackground} alt = "we are in this together" className = "background-image"/>
             <img src = {logo} alt = "This is our logo" className = "overlay-image"/>
-            <div className = "text-overlay">
-                <h1> herstory </h1>
-            </div>
             <div className = "start-button">
                 <a href = "https://2912938.propelauthtest.com/en/login">
                 <button type="button" class="btn btn-primary btn-lg" > Sign Up </button>

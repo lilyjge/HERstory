@@ -33,10 +33,9 @@ const Welcome = withAuthInfo((props) => {
     return (
         <>
             <div className ="website-homepage">
-            <img src = {welcome_background} alt = "we are in this together" className = "background-image"/>
             <img src = {logo} alt = "This is our logo" className = "welcome-image"/>
             <h1 className = "welcome-overlay">
-                Welcome to HERstory!
+                WELCOME TO
             </h1>
             <div className = "score-overlay">
                 <ReturnHighest highScore={2}></ReturnHighest>
