@@ -5,6 +5,7 @@ import DisplayAnswer from "./answer"
 import AllChoices from "./Choice";
 import Counter from "./Counter";
 import Next from './Next';
+import Exit from "./Exit";
 import { useState } from 'react';
 
 let index = Math.floor(Math.random() * 42);
@@ -38,6 +39,7 @@ const Game = () => {
               <div className="m-1 mt-3">
                 <h1 className="fs-6">
                   <Counter cnt={counter}></Counter>
+                  <Exit></Exit>
                 </h1>
               </div>
             </div>
