@@ -5,6 +5,9 @@
 A trivia game for the amazing accomplishments of women who have made significant contributions to the world but went without proper acknowledgement.
 
 ![herstory logo](client/src/logo.png)
+## Links
+Devpost: https://devpost.com/software/herstory-xb6m5t
+<br/><br/>
 
 ## Install
 This project uses nodejs and npm. Please install them to run this project locally and use the following steps: 
